@@ -1,0 +1,232 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-size: 24px; font-weight: 500; color: #185FA5; }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a { font-size: 16px; color: var(--color-text-secondary); text-decoration: none; cursor: pointer; }
+.nav-links a:hover { color: var(--color-text-primary); }
+.btn-primary { background: #185FA5; color: #fff; border: none; border-radius: var(--border-radius-md); padding: 12px 24px; font-size: 16px; font-weight: 500; cursor: pointer; }
+.btn-primary:hover { background: #0C447C; }
+.btn-outline { background: transparent; color: #185FA5; border: 1.5px solid #185FA5; border-radius: var(--border-radius-md); padding: 12px 24px; font-size: 16px; font-weight: 500; cursor: pointer; }
+.btn-outline:hover { background: #E6F1FB; }
+.hero { text-align: center; padding: 5rem 2rem 4rem; background: var(--color-background-primary); }
+.hero-badge { display: inline-block; background: #E6F1FB; color: #185FA5; font-size: 15px; padding: 6px 18px; border-radius: 99px; margin-bottom: 1.5rem; }
+.hero h1 { font-size: 56px; font-weight: 500; line-height: 1.2; margin-bottom: 1.25rem; }
+.hero h1 span { color: #185FA5; }
+.hero p { font-size: 20px; color: var(--color-text-secondary); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.7; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.stats-bar { display: flex; justify-content: center; gap: 3rem; padding: 2.5rem 2rem; border-top: 0.5px solid var(--color-border-tertiary); border-bottom: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); flex-wrap: wrap; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 34px; font-weight: 500; color: #185FA5; }
+.stat-label { font-size: 15px; color: var(--color-text-secondary); margin-top: 2px; }
+.section { padding: 4rem 2rem; }
+.section-label { font-size: 14px; color: #185FA5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.section h2 { font-size: 36px; font-weight: 500; margin-bottom: 1rem; }
+.section .sub { font-size: 18px; color: var(--color-text-secondary); max-width: 500px; line-height: 1.7; margin-bottom: 2.5rem; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.feat-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; }
+.feat-icon { width: 48px; height: 48px; border-radius: var(--border-radius-md); background: #E6F1FB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.feat-icon i { font-size: 24px; color: #185FA5; }
+.feat-card h3 { font-size: 18px; font-weight: 500; margin-bottom: 0.5rem; }
+.feat-card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; }
+.feat-badge { display: inline-block; background: #FAEEDA; color: #854F0B; font-size: 13px; padding: 3px 10px; border-radius: 4px; margin-top: 0.75rem; }
+.how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+.step { text-align: center; padding: 1.5rem 1rem; }
+.step-num { width: 44px; height: 44px; border-radius: 50%; background: #185FA5; color: #fff; font-size: 18px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+.step h3 { font-size: 17px; font-weight: 500; margin-bottom: 0.5rem; }
+.step p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; }
+.personas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.persona-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; }
+.persona-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; background: #B5D4F4; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; color: #0C447C; flex-shrink: 0; }
+.persona-card h3 { font-size: 17px; font-weight: 500; }
+.persona-card .role { font-size: 13px; color: var(--color-text-secondary); }
+.persona-card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 0.75rem; }
+.persona-card .tag { display: inline-block; background: var(--color-background-secondary); color: var(--color-text-secondary); font-size: 13px; padding: 3px 10px; border-radius: 4px; margin: 2px; }
+.cta-section { background: #185FA5; padding: 4rem 2rem; text-align: center; }
+.cta-section h2 { font-size: 36px; font-weight: 500; color: #fff; margin-bottom: 0.75rem; }
+.cta-section p { font-size: 18px; color: #B5D4F4; margin-bottom: 2rem; }
+.cta-link-box { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; background: #fff; border-radius: var(--border-radius-lg); padding: 2rem 2.5rem; max-width: 480px; width: 100%; }
+.cta-link-box .link-label { font-size: 15px; color: var(--color-text-secondary); }
+.cta-link-box a { font-size: 16px; color: #185FA5; font-weight: 500; word-break: break-all; text-decoration: none; }
+.cta-link-box a:hover { text-decoration: underline; }
+.btn-launch { background: #185FA5; color: #fff; border: none; border-radius: var(--border-radius-md); padding: 14px 32px; font-size: 18px; font-weight: 500; cursor: pointer; width: 100%; }
+.btn-launch:hover { background: #0C447C; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem; }
+.team-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; text-align: center; }
+.team-avatar { width: 60px; height: 60px; border-radius: 50%; background: #B5D4F4; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 500; color: #0C447C; margin: 0 auto 0.75rem; }
+.team-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.25rem; }
+.team-card p { font-size: 13px; color: var(--color-text-secondary); }
+.footer { padding: 2rem; text-align: center; border-top: 0.5px solid var(--color-border-tertiary); font-size: 15px; color: var(--color-text-secondary); }
+.bg-alt { background: var(--color-background-secondary); }
+.centered { text-align: center; }
+.centered .sub { margin-left: auto; margin-right: auto; }
+</style>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">MockDebut — official marketing website for AI-powered interview practice platform</h2>
+
+<nav class="nav">
+  <div class="nav-logo">MockDebut</div>
+  <div class="nav-links">
+    <a onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Features</a>
+    <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</a>
+    <a onclick="document.getElementById('users').scrollIntoView({behavior:'smooth'})">Who it's for</a>
+    <a onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})">Team</a>
+  </div>
+  <button class="btn-primary" onclick="document.getElementById('tryit').scrollIntoView({behavior:'smooth'})">Try MockDebut</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">AI-powered · 24/7 · Free to start</div>
+  <h1>Your <span>24/7</span><br>Interview Wingman</h1>
+  <p>Practice mock interviews tailored to any job description. Get instant AI feedback, STAR coaching, and a performance radar — anytime, anywhere.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('tryit').scrollIntoView({behavior:'smooth'})"><i class="ti ti-player-play" aria-hidden="true"></i> Start practicing free</button>
+    <button class="btn-outline" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works</button>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">24%</div><div class="stat-label">of grads considered unprepared</div></div>
+  <div class="stat-item"><div class="stat-num">$150</div><div class="stat-label">avg. cost per coaching session</div></div>
+  <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">available on demand</div></div>
+  <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">to get started</div></div>
+</div>
+
+<div class="section bg-alt" id="features">
+  <div class="section-label">Features</div>
+  <h2>Gen-AI powered features</h2>
+  <p class="sub">Everything you need to go from anxious to confident — personalized to every job you apply for.</p>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+      <h3>Dynamic scenarios</h3>
+      <p>AI automatically parses your CV and job description to generate tailored interview questions in real time.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><i class="ti ti-microphone" aria-hidden="true"></i></div>
+      <h3>Voice & sentiment</h3>
+      <p>Two-way voice conversations that simulate a real interview. Speak your answers, just like the real thing.</p>
+      <span class="feat-badge">Premium</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><i class="ti ti-list-check" aria-hidden="true"></i></div>
+      <h3>STAR diagnostic</h3>
+      <p>Every behavioral answer is evaluated across Situation, Task, Action, and Result — with hints as you go.</p>
+      <span class="feat-badge">Premium</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><i class="ti ti-chart-radar" aria-hidden="true"></i></div>
+      <h3>Performance radar</h3>
+      <p>Visualize your strengths and gaps across confidence, fluency, STAR adherence, and professional fit.</p>
+      <span class="feat-badge">Premium</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="how">
+  <div class="centered">
+    <div class="section-label">How it works</div>
+    <h2>Four steps to interview-ready</h2>
+    <p class="sub">MockDebut takes your CV and a job posting URL and turns them into a personalized mock interview session.</p>
+  </div>
+  <div class="how-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Upload your CV & JD</h3>
+      <p>Paste your CV text or upload a PDF, then add the job description URL or text.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Choose your persona</h3>
+      <p>Pick a Strict Technical Lead, Friendly HR, or Culture-Focused CEO as your interviewer.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Do the mock interview</h3>
+      <p>Answer AI-generated questions tailored to your profile. STAR hints guide behavioral answers.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Review your report</h3>
+      <p>Get a full performance report with radar chart, strengths, and specific areas to improve.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section bg-alt" id="users">
+  <div class="section-label">Who it's for</div>
+  <h2>Built for every job seeker</h2>
+  <p class="sub">Whether it's your first interview ever or a career pivot, MockDebut adapts to your situation.</p>
+  <div class="personas">
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="avatar">J</div>
+        <div><h3>Jeff, 21</h3><div class="role">CS student · Taipei, NTU</div></div>
+      </div>
+      <p>Strong coder but struggles with people skills and interview delivery. Needs a customized JD-aligned practice environment to sharpen his presentation.</p>
+      <span class="tag">Internship seeker</span><span class="tag">Technical role</span>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="avatar">T</div>
+        <div><h3>Tiffany, 20</h3><div class="role">Psychology student · England, UoM</div></div>
+      </div>
+      <p>First-time job hunter pivoting to product management. Knows the JD but needs a realistic interview simulation to build confidence.</p>
+      <span class="tag">First interview</span><span class="tag">Career pivot</span>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="avatar">Y</div>
+        <div><h3>You</h3><div class="role">Any role · Anywhere</div></div>
+      </div>
+      <p>MockDebut works for any job description in any industry — from software engineering to business development to creative roles.</p>
+      <span class="tag">Scalable</span><span class="tag">Any industry</span>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section" id="tryit">
+  <h2>Ready to ace your next interview?</h2>
+  <p>Click below to launch MockDebut — no sign-up required.</p>
+  <div class="cta-link-box">
+    <div class="link-label"><i class="ti ti-link" aria-hidden="true"></i> Direct link to MockDebut app</div>
+    <a href="https://claude.ai/public/artifacts/e6d5be3b-80c2-40db-ad0e-acd285615a3c">claude.ai/public/artifacts/e6d5be3b-80c2-40db-ad0e-acd285615a3c</a>
+    <button class="btn-launch" onclick="openLink('https://claude.ai/public/artifacts/e6d5be3b-80c2-40db-ad0e-acd285615a3c')"><i class="ti ti-external-link" aria-hidden="true"></i> Open MockDebut now</button>
+  </div>
+</div>
+
+<div class="section" id="team">
+  <div class="centered">
+    <div class="section-label">The team</div>
+    <h2>Built by Team 1 · NTPU</h2>
+    <p class="sub">A cross-disciplinary team from National Taipei University combining technology and business expertise.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">WZ</div>
+      <h3>Wen-Ze Chen (Andy)</h3>
+      <p>Information Management, NTPU</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">SJ</div>
+      <h3>Sing-Jhih Lan (Steven)</h3>
+      <p>Information Management, NTPU</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">NG</div>
+      <h3>Nathan Guilbaud</h3>
+      <p>Business Management, NTPU</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">JF</div>
+      <h3>Juliette Faucon</h3>
+      <p>Business Administration, NTPU</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <strong style="color:var(--color-text-primary)">MockDebut</strong> · Your 24/7 Interview Wingman · National Taipei University · 2026
+</div>
